@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1240px;
+  padding: 15px 0px;
+
+  .logo {
+    cursor: pointer;
+  }
+
+  .nav {
+
+    ul {
+      display: flex;
+      gap: 0 40px;
+      justify-content: space-between;
+    }
+
+    li {
+      list-style-type: none;
+      cursor: pointer;
+      font-size: 18px;
+    }
+  }
+
+  .account {
+    cursor: pointer;
+  }
+}

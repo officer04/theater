@@ -1,0 +1,45 @@
+.quest {
+  width: 600px;
+  padding: 10px;
+  margin-top: 10px;
+  position: relative;
+  border-radius: 10px;
+  height: 130px;
+  background-color: rgb(58, 63, 63);
+  color: #fff;
+
+  p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+
+  .dropDown {
+    padding: 10px 10px;
+    width: 240px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(95, 87, 87);
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .dropDownActive {
+    overflow: scroll;
+    z-index: 10;
+    max-height: 200px;
+    padding: 10px 10px;
+    width: 220px;
+    border-radius: 10px;
+    background-color: rgb(95, 87, 87);
+    color: #fff;
+    div {
+      margin-bottom: 10px;
+      padding: 5px 5px;
+
+      label {
+        cursor: pointer;
+      }
+    }
+  }
+}
