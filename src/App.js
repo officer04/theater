@@ -20,7 +20,7 @@ function App() {
     <div className="App">
       <Header scrollTo={scrollTo}/>
       <div className="container">
-        <AppRoutes onClickModal={onClickModal} modal={modal} />
+        <AppRoutes onClickModal={onClickModal} modal={modal} setModal={setModal}/>
       </div>
       <Footer/>
     </div>

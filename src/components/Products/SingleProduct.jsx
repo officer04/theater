@@ -1,15 +1,18 @@
 import { useParams } from 'react-router-dom';
+import { useState } from 'react';
 
-import Product from './Product';
+import circle from './../../images/x-circle.svg';
+
 import data from './../../utils/dataProduct.json';
 import theaterPlace from './../../utils/theaterPlace.json';
 
-import styles from './../../style/SingleProduct.module.scss';
+import Product from './Product';
 import Button from '../UI/Button';
-import { useState } from 'react';
 import Quest from '../Quest/Quest';
 
-const SinglProduct = ({ onClickModal, modal }) => {
+import styles from './../../style/SingleProduct.module.scss';
+
+const SinglProduct = ({ onClickModal, modal, setModal }) => {
   let { id } = useParams();
   const product = data.find((x) => x.id === id);
   const [arr, setArr] = useState([{ id: 1, price: product.price, time: product.time }]);
@@ -27,14 +30,32 @@ const SinglProduct = ({ onClickModal, modal }) => {
     };
     setArr([...arr, newPost]);
   };
+
+  const closeModal = () => {
+    setModal(false);
+  };
+
+  const closeTicket = (id) => {
+    if (arr.length === 1) return
+    setArr(arr.filter((obj) => obj.id !== id));
+  };
   return (
     <div className={styles.overflow}>
       {modal ? (
         <div className={styles.modal}>
           <div className={styles.card}>
-            <h1>Название спектакля: {product.title}</h1>
+            <div className={styles.cardTitle}>
+              <h1>Название спектакля: {product.title}</h1>
+              <img src={circle} alt="circle" onClick={closeModal} />
+            </div>
             {arr.map((obj) => (
-              <Quest product={obj} theaterPlace={theaterPlace} />
+              <Quest
+                key={obj.id}
+                id={obj.id}
+                product={obj}
+                theaterPlace={theaterPlace}
+                closeTicket={closeTicket}
+              />
             ))}
             <Button onClick={addTicket} className={styles.btn}>
               Добавить зрителя

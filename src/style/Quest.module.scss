@@ -8,6 +8,15 @@
   background-color: rgb(58, 63, 63);
   color: #fff;
 
+  .questClose {
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      cursor: pointer;
+    }
+  }
+
   p {
     margin-top: 10px;
     margin-bottom: 10px;

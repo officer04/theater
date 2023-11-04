@@ -1,7 +1,10 @@
-import styles from './../../style/Quest.module.scss'
 import { useState } from 'react';
 
-const Quest = ({product, theaterPlace}) => {
+import circle from './../../images/x-circle-white.svg';
+
+import styles from './../../style/Quest.module.scss';
+
+const Quest = ({ product, theaterPlace, closeTicket,id }) => {
   const [place, setPlace] = useState('');
   const [row, setRow] = useState('');
   const [active, setActive] = useState(false);
@@ -17,8 +20,13 @@ const Quest = ({product, theaterPlace}) => {
   };
   return (
     <div className={styles.quest}>
-      <p>Гость №{product.id}</p>
-      <p>Цена: {product.price}₽; Время и дата: {product.time}</p>
+      <div className={styles.questClose}>
+        <p>Гость №{product.id}</p>
+        <img src={circle} alt={circle} onClick={() => closeTicket(id)} />
+      </div>
+      <p>
+        Цена: {product.price}₽; Время и дата: {product.time}
+      </p>
       <div>
         <div className={styles.dropDown} onClick={addActive}>
           Выберите место: ряд - {row}, место - {place}{' '}
